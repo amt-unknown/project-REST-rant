@@ -10,7 +10,7 @@ function Default (html) {
                 {html.children}
             </body>
         </html>
-    )
+    );
 };
 
 module.exports = Default;

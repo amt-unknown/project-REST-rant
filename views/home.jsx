@@ -8,7 +8,7 @@ function home () {
             <h1>HOME</h1>
         </main>
     </Default>
-    )
+    );
 };
 
 module.exports = home;
