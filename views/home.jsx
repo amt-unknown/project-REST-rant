@@ -1,13 +1,13 @@
 const React = require('react');
-const Def = require('./default');
+const Default = require('./default');
 
 function home () {
     return (
-    <Def>
+    <Default>
         <main>
             <h1>HOME</h1>
         </main>
-    </Def>
+    </Default>
     )
 };
 
