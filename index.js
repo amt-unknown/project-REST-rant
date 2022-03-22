@@ -1,16 +1,20 @@
-require('dotenv').config()
-
+//Dependencies
+require('dotenv').config();
 const express = require('express');
 const app = express();
 
-app.use('/places', require('./controllers/places'))
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine())
 
+app.use('/places', require('./controllers/places'));
+
+//Routes
 app.get('/', (req,res) => {
-    res.send('Hello world!')
-})
+    res.render('home');
+});
 
 app.get('*', (req, res) => {
-    res.status(404).send('<h1>404 Page</h1>')
+    res.status(404).send('<h1>404 Page</h1>');
 })
 
-app.listen(process.env.PORT)
+app.listen(process.env.PORT);
