@@ -18,18 +18,18 @@ router.get('/', (req,res) => {
     res.render('places/index',{ places });
 });
 
-router.get('/new', (req,res) => {
-    res.send('New Page Form');
-});
+// router.get('/new', (req,res) => {
+//     res.send('New Page Form');
+// });
 
-router.get('/:id', (req, res) => {
-    let myId = req.params.id;
-    res.send(`Details for ${myId}`);
-});
+// router.get('/:id', (req, res) => {
+//     let myId = req.params.id;
+//     res.send(`Details for ${myId}`);
+// });
 
-router.get('/:id/edit', (req,res) => {
-    let myId = req.params.id;
-    res.send(`Edit page for ${myId}`);
-});
+// router.get('/:id/edit', (req,res) => {
+//     let myId = req.params.id;
+//     res.send(`Edit page for ${myId}`);
+// });
 
 module.exports = router;
