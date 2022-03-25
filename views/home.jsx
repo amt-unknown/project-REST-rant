@@ -5,7 +5,7 @@ function home () {
     return (
     <Default>
         <main>
-            <h1>HOME</h1>
+            <h1>REST-Rant</h1>
             <div>
                 <img src="/images/chia-fruit-drink.jpg" alt="Chia Fruit Shake" style={{width: 800}}/>
                 <div>
