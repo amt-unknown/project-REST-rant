@@ -27,10 +27,16 @@ router.get('/new', (req,res) => {
     res.render('places/new')
 });
 
-// router.get('/:id', (req, res) => {
-//     let myId = req.params.id;
-//     res.send(`Details for ${myId}`);
-// });
+router.get('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)){
+        res.render('error404')
+    } else if (!place[id]) {
+        res.render('error404')
+    } else {
+        res.render('placecs/show')
+    }
+});
 
 // router.get('/:id/edit', (req,res) => {
 //     let myId = req.params.id;
