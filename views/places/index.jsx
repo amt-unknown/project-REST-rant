@@ -1,13 +1,13 @@
 const React = require('react');
 const Default = require('../default');
 
-function index (data) {
-    let placesFormatted = data.places.map((place) => {
+function Index (data) {
+    let placesFormatted = data.places.map((place, index) => {
         return (
             <div className="col-sm-6">
                 <h2>
                     <a href={`/places/${index}`}>
-                    {place.name}
+                        {place.name}
                     </a>
                 </h2>
                 <p className="text-left">
@@ -33,4 +33,4 @@ function index (data) {
     );
 };
 
-module.exports = index;
+module.exports = Index;

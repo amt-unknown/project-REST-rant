@@ -31,16 +31,16 @@ router.get('/:id', (req, res) => {
     let id = Number(req.params.id)
     if (isNaN(id)){
         res.render('error404')
-    } else if (!place[id]) {
+    } else if (!places[id]) {
         res.render('error404')
     } else {
-        res.render('placecs/show')
+        res.render('places/show', {place: places[id], id})
     }
 });
 
-// router.get('/:id/edit', (req,res) => {
-//     let myId = req.params.id;
-//     res.send(`Edit page for ${myId}`);
-// });
+router.get('/:id/edit', (req,res) => {
+    let myId = req.params.id;
+    res.send(`Edit page for ${myId}`);
+});
 
 module.exports = router;
