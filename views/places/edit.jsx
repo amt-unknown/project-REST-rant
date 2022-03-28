@@ -2,7 +2,7 @@ const React = require('react');
 const Default = require('../default');
 
 function edit_form (data) {
-    console.log(data.id)
+    // console.log(data)
     return(
         <Default>
             <main>
@@ -23,7 +23,7 @@ function edit_form (data) {
                             <label htmlFor="pic">Place Picture</label>
                             <input 
                                 className="form-control" 
-                                type="url" 
+                                // type="url" 
                                 id="pic" 
                                 name="pic" 
                             />
@@ -56,7 +56,7 @@ function edit_form (data) {
                             // required 
                         />
                     </div>
-                    <input className="btn btn-primary" type="submit" value="Add Place" />
+                    <input className="btn btn-primary" type="submit" value="Submit Changes" />
                 </form>
             </main>
         </Default>
