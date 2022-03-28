@@ -1,19 +1,21 @@
 const React = require('react');
 const Default = require('../default');
 
-function new_form () {
-    return (
+function edit_form (data) {
+    console.log(data.id)
+    return(
         <Default>
             <main>
-                <h1>Add a New Place</h1>
-                <form method="POST" action="/places">
-                <div className="row">
+                <h1>Edit Place</h1>
+                <form method="POST" action={`/places/${data.id}?_method=PUT`}>
+                    <div className="row">
                         <div className="form-group col-sm-6">
                             <label htmlFor="name">Place Name</label>
                             <input 
                                 className="form-control" 
                                 id="name" 
                                 name="name" 
+                                value={data.place.name}
                                 required 
                             />
                         </div>
@@ -51,16 +53,14 @@ function new_form () {
                             className="form-control" 
                             id="cuisines" 
                             name="cuisines" 
-                            required 
+                            // required 
                         />
                     </div>
-                    <div className="form-group">
-                        <input className="btn btn-primary" type="submit" value="Add Place" />
-                    </div>
+                    <input className="btn btn-primary" type="submit" value="Add Place" />
                 </form>
             </main>
         </Default>
-    );
-};
+    )
+}
 
-module.exports = new_form;
+module.exports = edit_form
