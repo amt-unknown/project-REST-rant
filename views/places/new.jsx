@@ -7,7 +7,7 @@ function new_form () {
             <main>
                 <h1>Add a New Place</h1>
                 <form method="POST" action="/places">
-                <div className="row">
+                    <div className="row">
                         <div className="form-group col-sm-6">
                             <label htmlFor="name">Place Name</label>
                             <input 
@@ -53,6 +53,10 @@ function new_form () {
                             name="cuisines" 
                             required 
                         />
+                    </div>
+                    <div className="form-group">
+                        <label for="founded">Founded Year</label>
+                        <input className="form-control" id="foudned" name="foudned"/>
                     </div>
                     <div className="form-group">
                         <input className="btn btn-primary" type="submit" value="Add Place" />

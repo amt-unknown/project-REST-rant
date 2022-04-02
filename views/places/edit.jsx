@@ -56,7 +56,9 @@ function edit_form (data) {
                             // required 
                         />
                     </div>
+                    <br/>
                     <input className="btn btn-primary" type="submit" value="Submit Changes" />
+                    <br/>
                 </form>
             </main>
         </Default>
