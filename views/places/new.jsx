@@ -53,16 +53,17 @@ function new_form () {
                                 name="state" 
                             />
                         </div>
-                        <div className="form-group col-sm-6 col-md-5 col-lg-3">
-                            <label for="founded">Founded Year</label>
-                            <input className="form-control" 
-                                id="foudned" 
-                                name="foudned"
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label htmlFor="founded">Founded Year</label>
+                            <input 
+                                type="number"
+                                className="form-control"
+                                id="founded"
+                                name="founded"
+                                value={new Date().getFullYear()}
                             />
-                    </div>
-                    </div>
-                   
-                    
+                        </div>
+                    </div>                    
                     <div className="form-group">
                         <input className="btn btn-primary" type="submit" value="Add Place" />
                     </div>
