@@ -56,7 +56,7 @@ function show ({place}) {
                             </button>
                         </form>
                     </div>
-                    <hl/>
+                    <hr />
                     <div className="row">
                         <h2><br/>Comments</h2>
                         {comments}

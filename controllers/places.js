@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const places = require("../models/places.js")
+const comments = require("../models/comment.js")
 const db = require('../models')
 
 // console.log(places)
@@ -88,12 +89,22 @@ router.delete('/:id', (req, res) => {
 
 
 //RANTS
-router.post('/:id/rant', (req, res) => {
-    res.send('GET /places/:id/rant stub')
+router.get('/:id/comment', (req,res) => {
+    // res.send('GET /places/:id/comment')
+    db.Place.findById(req.params.id)
+        .then(foundPlace => {
+            res.render('places/comment',{
+                place: foundPlace
+            })
+        })
 })
 
-router.delete('/:id/rant/:rantId', (req, res) => {
-    res.send('GET /places/:id/rant/:rantId stub')
+router.post('/:id', (req, res) => {
+    res.send('POST /places/:id/comment stub')
+})
+
+router.delete('/:id/comment/:rantId', (req, res) => {
+    res.send('DELETE /places/:id/comment/:commentId stub')
 })
 
 
