@@ -4,6 +4,7 @@ const db = require('../models')
 
 // console.log(places)
 
+//INDEX
 router.get('/', (req,res) => {
     db.Place.find()
         .then((places) => {
@@ -15,7 +16,17 @@ router.get('/', (req,res) => {
         })
 });
 
+//CREATE
 router.post('/', (req, res) => {
+    if(req.body.pic === ""){
+        req.body.pic = undefined;
+    }
+    if(req.body.city === ""){
+        req.body.city = undefined;
+    }
+    if(req.body.state === ""){
+        req.body.state = undefined;
+    }
     db.Place.create(req.body)
         .then(() => {
             res.redirect('places')
@@ -26,14 +37,16 @@ router.post('/', (req, res) => {
         })
 })
 
+//NEW
 router.get('/new', (req,res) => {
     res.render('places/new')
 });
 
+//SHOW
 router.get('/:id', (req, res) => {
     db.Place.findById(req.params.id)
     .then(foundPlace => {
-        console.log(foundPlace)
+        // console.log(foundPlace)
         res.render('places/show', {
            place: foundPlace
         })
@@ -44,32 +57,36 @@ router.get('/:id', (req, res) => {
     })
 });
 
+//EDIT
+router.get('/:id/edit', (req, res) => {
+    db.Place.findById(req.params.id)
+        .then(foundPlace => {
+            res.render('places/edit',{
+                place: foundPlace
+            })
+            console.log(foundPlace)
+        })
+})
+
+//UPDATE
 router.put('/:id', (req,res) => {
     db.Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(updatedPlace => {
-            console.log(updatedPlace)
             res.redirect(`/places/${req.params.id}`)
         })
-    // res.send('PUT /places/:id stub')
 })
 
+//DELETE
 router.delete('/:id', (req, res) => {
-    // db.Place.findByIdAndDelete(req.params.id)
-    //     .then(deletedPlace => {
-    //         res.status(303).redirect('/places')
-    //     })
-    res.send('DELETE stub')
+   db.Place.findByIdAndDelete(req.params.id)
+    .then(deleteBread => {
+        res.status(303).redirect('/places')
+    })
 })
+///
 
-router.get('/:id/edit', (req, res) => {
-    // db.Place.findById(req.params.id)
-    //     .then(foundPlace => {
-    //         console.log("hello")
-    //     })
-    // res.render('places/edit', {})
-    res.send('GET /:id/edit stub')
-})
 
+//RANTS
 router.post('/:id/rant', (req, res) => {
     res.send('GET /places/:id/rant stub')
 })
