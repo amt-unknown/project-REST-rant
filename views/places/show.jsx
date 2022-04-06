@@ -1,8 +1,27 @@
 const React = require('react')
+const comment = require('../../models/comment')
 const Default = require('../default')
 
 function show ({place}) {
-    console.log(place)
+    let comments = (
+        <h3 className='inactive'>
+            No Comments yet!
+        </h3>
+    )
+    if (place.comments.length) {
+        comments = place.comments.map(comment => {
+        return (
+            <div className="col-sm-12">
+            <h2 className="rant">{comment.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
+            <h4>{comment.content}</h4>
+            <h3>
+                <stong>- {comment.author}</stong>
+            </h3>
+            <h4>Rating: {comment.stars}</h4>
+            </div>
+        )
+        })
+    }
     return(
         <Default>
             <main>
@@ -40,7 +59,7 @@ function show ({place}) {
                     <hl/>
                     <div className="row">
                         <h2><br/>Comments</h2>
-                        <p>No comments yet!</p>
+                        {comments}
                     </div>
                 </div>
             </main>
