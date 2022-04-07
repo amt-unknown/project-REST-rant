@@ -13,8 +13,9 @@ body {
   }
   
 main {
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-right: 1em;
+    margin-left: 1em;
+    padding: 2em;
     background-color: white;
   }
 
@@ -48,4 +49,13 @@ form {
 }
 hr{
     width: 90% q
+}
+
+#rant{
+    margin-left: 4em;
+}
+
+.rant-box{
+    border:1px solid #ced4da;
+    border-radius: .35em
 }

@@ -89,18 +89,36 @@ router.delete('/:id', (req, res) => {
 
 
 //RANTS
-router.get('/:id/comment', (req,res) => {
-    // res.send('GET /places/:id/comment')
+router.post('/:id/comment', (req, res) => {
+    console.log(req.params.id)
+    req.body.rant = req.body.rant ? true : false
+    if(req.body.author === "") {
+        req.body.author = undefined
+    }
+    if(req.body.content === ""){
+        req.body.content = undefined
+    }
+    console.log(req.body)
     db.Place.findById(req.params.id)
-        .then(foundPlace => {
-            res.render('places/comment',{
-                place: foundPlace
-            })
+        .then(place =>  {
+            db.Comment.create(req.body)
+                .then(comment =>  {
+                    place.comments.push(comment.id)
+                    place.save()
+                        .then(() => {
+                            res.redirect(`/places/${req.params.id}`)
+                        })
+                })
+                .catch(err => {
+                    console.log('Failed push')
+                    res.render('error404')
+                })
         })
-})
-
-router.post('/:id', (req, res) => {
-    res.send('POST /places/:id/comment stub')
+        .catch(err =>  {
+            console.log('Failed to create')
+            res.render('error404')
+        })
+    // res.send('POST /places/:id/comment stub')
 })
 
 router.delete('/:id/comment/:rantId', (req, res) => {
