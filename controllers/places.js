@@ -72,6 +72,17 @@ router.get('/:id/edit', (req, res) => {
 
 //UPDATE
 router.put('/:id', (req,res) => {
+    console.log(req.body)
+    if(req.body.pic === ""){
+        req.body.pic = undefined;
+    }
+    if(req.body.city === ""){
+        req.body.city = undefined;
+    }
+    if(req.body.state === ""){
+        req.body.state = undefined;
+    }
+    console.log(req.body)
     db.Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
         .then(updatedPlace => {
             res.redirect(`/places/${req.params.id}`)

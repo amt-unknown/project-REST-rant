@@ -22,10 +22,10 @@ function edit_form ({place}) {
                         <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="pic">Place Picture</label>
                             <input 
-                                className="form-control" 
-                                // type="url" 
+                                className="form-control"  
                                 id="pic" 
                                 name="pic" 
+                                value={place.pic}
                             />
                         </div>
                     </div>
@@ -36,6 +36,7 @@ function edit_form ({place}) {
                                 className="form-control" 
                                 id="city" 
                                 name="city" 
+                                value={place.city}
                             />
                         </div>
                         <div className="form-group col-sm-6 col-md-4 col-lg-3">
@@ -44,16 +45,17 @@ function edit_form ({place}) {
                                 className="form-control" 
                                 id="state" 
                                 name="state" 
+                                value={place.state}
                             />
                         </div>
                         <div className="form-group col-sm-6 col-md-4 col-lg-3">
-                            <label htmlFor="founded">Founded Year</label>
+                            <label htmlFor="founded">Founded</label>
                             <input 
                                 type="number"
                                 className="form-control"
                                 id="founded"
                                 name="founded"
-                                value={new Date().getFullYear()}
+                                value={place.founded}
                             />
                         </div>
                     </div>
@@ -63,11 +65,12 @@ function edit_form ({place}) {
                             className="form-control" 
                             id="cuisines" 
                             name="cuisines" 
-                            // required 
+                            required
+                            value={place.cusines}
                         />
                     </div>
                     <br/>
-                    <input className="btn btn-primary" type="submit" value="Submit Changes" />
+                    <input className="btn btn-primary" type="submit" value="Update Place" />
                     <br/>
                 </form>
             </main>
