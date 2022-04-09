@@ -48,7 +48,7 @@ form {
    text-align: center;
 }
 hr{
-    width: 90% q
+    margin-top: 1em;
 }
 
 #rant{
@@ -58,4 +58,20 @@ hr{
 .rant-box{
     border:1px solid #ced4da;
     border-radius: .35em
+}
+
+.rant-post-box{
+    padding-top: 2em;
+}
+
+.show-box {
+    padding-bottom: 2em;
+}
+
+.comment-box{
+    padding-bottom: 2em
+}
+
+.home-pic{
+    width: 100%;
 }
