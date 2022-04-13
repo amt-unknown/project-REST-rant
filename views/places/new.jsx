@@ -21,7 +21,7 @@ function new_form () {
                             <label htmlFor="pic">Place Picture</label>
                             <input 
                                 className="form-control" 
-                                type="url" 
+                                // type="url" 
                                 id="pic" 
                                 name="pic" 
                             />

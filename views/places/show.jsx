@@ -121,7 +121,7 @@ function show ({place}) {
                                 </div>
                                 <div className="col-md-2">
                                     <div className="form-check">
-                                        <label class="form-check-label" htmlFor="rant" id="rant-checkbox">Rant?</label>
+                                        <label className="form-check-label" htmlFor="rant" id="rant-checkbox">Rant?</label>
                                         <br/>
                                         <input
                                             className="form-check-input"
